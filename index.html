@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Casino Game</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- START SCREEN -->
+    <div id="start-screen" class="screen active">
+      <h1>Casino</h1>
+      <p id="start-money">Money: $10.00</p>
+      <div class="menu-buttons">
+        <button onclick="goToBlackjack()">Play Blackjack</button>
+        <button onclick="goToPoker()">Play Poker</button>
+      </div>
+      <div class="broom-area">
+        <p>Out of money?</p>
+        <img
+          id="broom"
+          src="https://static.vecteezy.com/system/resources/thumbnails/041/925/490/small/ai-generated-cartoon-witch-broom-isolated-on-transparent-background-free-png.png"
+          onclick="cleanFloors()"
+        />
+        <p>Clean the floors (+$0.01)</p>
+      </div>
+    </div>
+
+    <!-- BLACKJACK SCREEN -->
+    <div id="blackjack-screen" class="screen">
+      <h2>Blackjack</h2>
+      <p id="blackjack-money">Money: $0.00</p>
+
+      <input
+        id="bet-input"
+        type="number"
+        placeholder="Bet amount"
+        step="0.01"
+      />
+      <button id="bj-deal" onclick="startBlackjack()">Deal</button>
+
+      <div class="hand-section">
+        <h3>You <span id="player-score">0</span></h3>
+        <div id="player-hand" class="hand"></div>
+      </div>
+
+      <div class="hand-section">
+        <h3>Dealer <span id="dealer-score">0</span></h3>
+        <div id="dealer-hand" class="hand"></div>
+      </div>
+
+      <div class="controls">
+        <button onclick="hit()">Hit</button>
+        <button onclick="stand()">Stand</button>
+      </div>
+
+      <p id="result"></p>
+      <button onclick="backToMenu()">Back to Menu</button>
+    </div>
+
+    <!-- POKER SCREEN -->
+    <div id="poker-screen" class="screen">
+      <h2>Poker (5-Card Draw)</h2>
+      <p id="poker-money">Money: $0.00</p>
+
+      <input
+        id="poker-bet"
+        type="number"
+        placeholder="Bet amount"
+        step="0.01"
+      />
+      <button id="pk-deal" onclick="startPoker()">Deal</button>
+      <button id="pk-draw" onclick="drawPokerCards()">Draw Cards</button>
+
+      <div class="hand-section">
+        <h3>You <span id="player-hand-rank"></span></h3>
+        <div id="poker-player-hand" class="hand"></div>
+      </div>
+
+      <div class="hand-section">
+        <h3>Dealer <span id="dealer-hand-rank"></span></h3>
+        <div id="poker-dealer-hand" class="hand"></div>
+      </div>
+
+      <p id="poker-result"></p>
+      <button onclick="backToMenu()">Back to Menu</button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
